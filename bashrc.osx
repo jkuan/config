@@ -11,7 +11,9 @@ export DISPLAY=:0.0
 export PATH="$PATH:/usr/X11R6/bin"
 
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
-alias gvim="open -a MacVim"
+function fraise {
+	open -a Fraise $@
+}
 export PATH="$PATH:."
 
 
