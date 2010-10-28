@@ -1,0 +1,34 @@
+alias matlab='/Applications/MATLAB_R2008a/bin/matlab -nodesktop -nosplash'
+alias X11="/Applications/Utilities/X11.app/Contents/MacOS/X11"
+alias sshece='ssh -Y jkuan@ssh.ece.ubc.ca'
+alias ssharch='ssh -Y ssh.ece.ubc.ca -tY ssh arch'
+alias eject='diskutil umount'
+export PATH=$PATH:/Users/jkuan/Scripts
+
+export EDITOR=/usr/bin/vi
+export PATH="$PATH:/usr/local/bin"
+export DISPLAY=:0.0
+export PATH="$PATH:/usr/X11R6/bin"
+
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
+alias gvim="open -a MacVim"
+export PATH="$PATH:."
+
+
+# cdff will change directory to that of front Finder window
+function ff { osascript -e 'tell application "Finder"' \
+-e "if (${1-1} <= (count Finder windows)) then" \
+-e "get POSIX path of (target of window ${1-1} as alias)" \
+-e 'else' -e 'get POSIX path of (desktop as alias)' \
+-e 'end if' \
+-e 'end tell'; }
+function xcff { osascript -e 'tell application "Xcode"'
+-e "if (${1-1} <= (count windows)) then" \
+-e "get associated file name of window ${1-1}" \
+-e 'else' \
+-e 'get ""' \ 
+-e 'end if' \
+-e 'end tell'; }
+function cdff { cd "`ff $@`"; }
+function cdxc { FILE="`xcff $@`"; if [ "-$FILE" != "-" ] ; \
+then cd "${FILE%/*}" ; fi; }
