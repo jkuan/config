@@ -1,10 +1,5 @@
-alias ls='ls -G'
-alias ll='ls -lA'
-alias l='ls'
-alias du='du -h'
 bind "set completion-ignore-case on"
 alias ..='cd ..'
-alias dir='ls -Fla|more'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
@@ -14,3 +9,4 @@ if [ "$PS1" ]; then
 fi
 
 set -o vi
+export EDITOR=/usr/bin/vi
