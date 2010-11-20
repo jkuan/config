@@ -18,7 +18,9 @@ let g:tex_flavor='latex'
 set ignorecase
 set smartcase
 set title
-set scrolloff=3
+set scrolloff=5
+set sw=4
+set tw=100
 set hlsearch
 set ruler
 set showcmd
@@ -27,6 +29,7 @@ if has("gui_running")
 	set guioptions=egmrt
 endif
 autocmd FileType text setlocal wrap linebreak textwidth=0
+set wildmenu
 
 " use letters to escape to normal mode
 ino jj <esc>

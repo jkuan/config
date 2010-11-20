@@ -1,0 +1,3 @@
+OSX 10.6 customization:
+defaults write com.apple.finder QLEnableXRayFolders 1
+defaults write com.apple.dock showhidden -bool true
