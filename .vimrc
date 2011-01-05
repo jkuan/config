@@ -1,5 +1,6 @@
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
+" make sure these 2 pathogen lines come before enabling filetype detection
 
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
@@ -25,6 +26,7 @@ set scrolloff=5
 set sw=4
 set tw=100
 set hlsearch
+set incsearch
 set ruler
 set showcmd
 set tabstop=4
@@ -32,7 +34,11 @@ if has("gui_running")
 	set guioptions=egmrt
 endif
 autocmd FileType text setlocal wrap linebreak textwidth=0
-set wildmenu
+set wildmode=list:longest
+set pastetoggle=<F3>
+map <F2> :NERDTreeToggle<CR>
+map <leader>f vipgq
+
 
 " use letters to escape to normal mode
 ino jj <esc>
