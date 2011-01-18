@@ -16,7 +16,7 @@ filetype indent on
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
-let g:tex_flavor='latex'
+let g:tex_flavor="latex"
 
 :syntax on
 set ignorecase
@@ -38,6 +38,10 @@ set wildmode=list:longest
 set pastetoggle=<F3>
 map <F2> :NERDTreeToggle<CR>
 map <leader>f vipgq
+
+" either cul or syntax highlighting needs to be off for latex files
+au FileType latex set nocursorline
+au FileType tex set nocursorline
 
 
 " use letters to escape to normal mode
