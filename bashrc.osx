@@ -12,6 +12,8 @@ alias ssharch='ssh -Y ssh.ece.ubc.ca -tY ssh arch'
 alias eject='diskutil umount'
 export PATH=$PATH:/Users/jkuan/Scripts
 
+export P4CONFIG=~/.p4config
+
 export DISPLAY=:0.0
 export PATH="$PATH:/usr/X11R6/bin"
 

@@ -1,0 +1,11 @@
+"hg5427 (created: 2011/01/24 00:00:10)
+
+loadplugins '\.(js|penta)$'
+mapgroup! user
+set editor='~/Scripts/mvim -f +<line> <file>'
+set guioptions=bCrsT
+set passkeys+='www\.google\.com/reader':nplmsStgaujk
+set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
+set passkeys+="https://www\.google\.com/calendar":jkgt12345qrceznpdwmxa<Delete>/+
+
+" vim: set ft=pentadactyl:
