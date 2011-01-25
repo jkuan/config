@@ -37,7 +37,7 @@ autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
 set pastetoggle=<F3>
 map <F2> :NERDTreeToggle<CR>
-map <leader>f vipgq
+map <leader>g Vgq
 
 " either cul or syntax highlighting needs to be off for latex files
 au FileType latex set nocursorline
