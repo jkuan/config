@@ -37,7 +37,11 @@ autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
 set pastetoggle=<F3>
 map <F2> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
+" lusty juggler wants hidden set
+" be careful about using q! !!!
+set hidden
 
 " either cul or syntax highlighting needs to be off for latex files
 au FileType latex set nocursorline
