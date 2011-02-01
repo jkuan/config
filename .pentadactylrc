@@ -8,4 +8,11 @@ set passkeys+='www\.google\.com/reader':nplmsStgaujk
 set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
 set passkeys+="https://www\.google\.com/calendar":jkgt12345qrceznpdwmxa/?<Delete>/+
 
+nno j 5j
+nno k 5k
+" as of jan31 2011 dactyl doesn't handle up/down/space keys 
+" but when it does, scroll half-page
+" nno <S-Space> <C-u>
+" nno <Space> <C-d>
+
 " vim: set ft=pentadactyl:
