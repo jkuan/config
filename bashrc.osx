@@ -23,6 +23,10 @@ function fraise {
 }
 export PATH="$PATH:."
 
+if [ CONQUE ]; then
+	export TERM=xterm
+fi
+
 
 # cdff will change directory to that of front Finder window
 function ff { osascript -e 'tell application "Finder"' \

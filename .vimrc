@@ -39,9 +39,22 @@ set pastetoggle=<F3>
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
+
+nno <Space> 
+nno <S-Space> 
+
+" for conque terminal
+" use ctrl-w in insert mode in terminal buffer
+let g:ConqueTerm_CWInsert = 0
+let g:ConqueTerm_Color = 1
+
 " lusty juggler wants hidden set
 " be careful about using q! !!!
 set hidden
+" hide files from lusty explorer table, can still open explicitly
+set wildignore=*.o,*.aux
+" use osx's vim without warning
+let g:LustyJugglerSuppressRubyWarning = 1
 
 " either cul or syntax highlighting needs to be off for latex files
 au FileType latex set nocursorline
