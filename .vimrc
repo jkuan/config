@@ -64,5 +64,8 @@ au FileType tex set nocursorline
 " use letters to escape to normal mode
 ino jj <esc>
 cno jj <c-c>
-vno v <esc>
+"for visual mode only
+xn v <esc> 
+"for select mode only
+snor jj <esc> 
 
