@@ -22,6 +22,7 @@ let g:tex_flavor="latex"
 set ignorecase
 set smartcase
 set title
+set laststatus=2
 set scrolloff=5
 set sw=4
 set tw=100
@@ -37,7 +38,7 @@ autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
 set pastetoggle=<F3>
 map <F2> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\.aux$', '\.eps$', '\.pdf$']
+let NERDTreeIgnore=['\.toc$', '\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
 
 nno <Space> 
@@ -52,13 +53,15 @@ let g:ConqueTerm_Color = 1
 " be careful about using q! !!!
 set hidden
 " hide files from lusty explorer table, can still open explicitly
-set wildignore=*.o,*.aux
+set wildignore=*.o,*.aux,*.toc
 " use osx's vim without warning
 let g:LustyJugglerSuppressRubyWarning = 1
 
 " either cul or syntax highlighting needs to be off for latex files
 au FileType latex set nocursorline
 au FileType tex set nocursorline
+" use {{{ and }}} for folds
+set foldmethod=marker
 
 
 " use letters to escape to normal mode

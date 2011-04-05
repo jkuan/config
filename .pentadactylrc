@@ -1,15 +1,15 @@
 "hg5427 (created: 2011/01/24 00:00:10)
 
 loadplugins '\.(js|penta)$'
-mapgroup! user
+"mapgroup! user
 set editor='~/Scripts/mvim -f +<line> <file>'
 set guioptions=bCrsT
-set passkeys+='www\.google\.com/reader':nplmsStgaujk
+set passkeys+='www\.google\.com/reader/':nplmsStgaujk?/r
 set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
-set passkeys+="https://www\.google\.com/calendar":jkgt12345qrceznpdwmxa/?<Delete>/+
+set passkeys+='www\.google\.com/calendar/':jkgt12345qrceznpdwmxa/?<Delete>/+
 
-" nno j 5j
-" nno k 5k
+nno j 5j
+nno k 5k
 " as of jan31 2011 dactyl doesn't handle up/down/space keys 
 " but when it does, scroll half-page
 " nno <S-Space> <C-u>

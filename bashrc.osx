@@ -8,6 +8,7 @@ alias X11="open -a X11"
 alias sshece='ssh -Y jkuan@ssh.ece.ubc.ca'
 alias sshecearchc24='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh c24-0 -t tcsh'
 alias sshecearchhead='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh arch-head'
+alias sshecearch='ssh jkuan@ssh.ece.ubc.ca -t ssh arch'
 alias ssharch='ssh -Y ssh.ece.ubc.ca -tY ssh arch'
 alias eject='diskutil umount'
 export PATH=$PATH:/Users/jkuan/Scripts
@@ -26,6 +27,11 @@ export PATH="$PATH:."
 if [ CONQUE ]; then
 	export TERM=xterm
 fi
+
+# TODO move z.sh into config repo
+function precmd () {
+	z --add "$(pwd -P)"
+}
 
 
 # cdff will change directory to that of front Finder window
