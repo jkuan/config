@@ -30,9 +30,14 @@ set hlsearch
 set incsearch
 set ruler
 set showcmd
+"nostartofline, makes vim remember cursor column
+set nosol 
 set tabstop=4
 if has("gui_running")
 	set guioptions=egmrt
+	let g:indent_guides_enable_on_vim_startup = 1
+	let g:indent_guides_color_change_percent = 4
+	colorscheme solarized
 endif
 autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
@@ -43,6 +48,8 @@ map <leader>g Vgq
 
 nno <Space> 
 nno <S-Space> 
+"make Y consistent with C and D
+nnoremap Y y$ 
 
 " for conque terminal
 " use ctrl-w in insert mode in terminal buffer
