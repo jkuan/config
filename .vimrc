@@ -19,17 +19,18 @@ filetype indent on
 let g:tex_flavor="latex"
 
 :syntax on
+set sw=4
+set tw=100
 set ignorecase
 set smartcase
 set title
 set laststatus=2
 set scrolloff=5
-set sw=4
-set tw=100
 set hlsearch
 set incsearch
 set ruler
 set showcmd
+set backspace=indent,eol,start
 "nostartofline, makes vim remember cursor column
 set nosol 
 set tabstop=4
@@ -46,10 +47,13 @@ map <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.toc$', '\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
 
+" browser style space bar nav
 nno <Space> 
 nno <S-Space> 
 "make Y consistent with C and D
 nnoremap Y y$ 
+" hopefully this key sequence is unused, and ack.vim is installed
+nmap g/ :Ack 
 
 " for conque terminal
 " use ctrl-w in insert mode in terminal buffer
@@ -69,7 +73,6 @@ au FileType latex set nocursorline
 au FileType tex set nocursorline
 " use {{{ and }}} for folds
 set foldmethod=marker
-
 
 " use letters to escape to normal mode
 ino jj <esc>
