@@ -42,6 +42,7 @@ if has("gui_running")
 endif
 autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
+nnoremap <F1> :GundoToggle<CR>
 set pastetoggle=<F3>
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.toc$', '\.aux$', '\.eps$', '\.pdf$']
@@ -52,7 +53,7 @@ nno <Space> 
 nno <S-Space> 
 "make Y consistent with C and D
 nnoremap Y y$ 
-" hopefully this key sequence is unused, and ack.vim is installed
+" hopefully ack.vim is installed
 nmap g/ :Ack 
 
 " for conque terminal
