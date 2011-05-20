@@ -55,6 +55,7 @@ nno <S-Space> 
 nnoremap Y y$ 
 " hopefully ack.vim is installed
 nmap g/ :Ack 
+nnoremap <leader>v `[v`]
 
 " for conque terminal
 " use ctrl-w in insert mode in terminal buffer

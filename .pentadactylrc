@@ -1,10 +1,8 @@
-"hg5427 (created: 2011/01/24 00:00:10)
-
 loadplugins '\.(js|penta)$'
 "mapgroup! user
-set editor='~/Scripts/mvim -f +<line> <file>'
+set editor='~/Scripts/mvim -f +<line> <file> -c "set lines=30" -c "set columns=100" -c "colorscheme macvim"'
 set guioptions=bCrsT
-set passkeys+='www\.google\.com/reader/':nplmsStgaujk?/r
+set passkeys+='www\.google\.com/reader/':nplmsStgaujkrvJKAXNOVP/?<Return>
 set passkeys+='mail\.google\.com':c/jkhnpouelxsfra#`[]z?*nrtgidIU+-=<Tab><Return>
 set passkeys+='www\.google\.com/calendar/':jkgt12345qrceznpdwmxa/?<Delete>/+
 

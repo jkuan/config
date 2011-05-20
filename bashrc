@@ -8,5 +8,4 @@ if [ "$PS1" ]; then
 	export PS1="\[\e]2;\u@\h:\w\a\]> "
 fi
 
-set -o vi
 export EDITOR=/usr/bin/vi
