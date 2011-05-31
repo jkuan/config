@@ -4,3 +4,4 @@ defaults write com.apple.dock showhidden -bool true
 defaults write com.apple.iTunes invertStoreLinks -boolean True
 changed /etc/sshd_config so use port 22222
 changed /System/Library/LaunchDaemons/ssh.plist to start ssh service on traffic on 22222
+.pentadactyl/plugins is a link to misc/dactyl-plugins
