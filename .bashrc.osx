@@ -56,3 +56,10 @@ function cdff { cd "`ff $@`"; }
 function cdxc { FILE="`xcff $@`"; if [ "-$FILE" != "-" ] ; \
 then cd "${FILE%/*}" ; fi; }
 
+if [ -f /opt/local/etc/bash_completion ]; then
+	. /opt/local/etc/bash_completion
+fi
+
+if [ -f /opt/local/etc/profile.d/autojump.sh ]; then
+	. /opt/local/etc/profile.d/autojump.sh
+fi
