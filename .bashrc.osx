@@ -3,7 +3,6 @@ alias ll='ls -lA'
 alias l='ls'
 
 alias matlab='/Applications/MATLAB_R2008a/bin/matlab -nodesktop -nosplash'
-#alias X11="/Applications/Utilities/X11.app/Contents/MacOS/X11"
 alias X11="open -a X11"
 alias sshece='ssh -Y jkuan@ssh.ece.ubc.ca'
 alias sshecearchc24='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh c24-0 -t tcsh'
@@ -11,7 +10,7 @@ alias sshecearchhead='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh arch-head'
 alias sshecearch='ssh jkuan@ssh.ece.ubc.ca -t ssh arch'
 alias ssharch='ssh -Y ssh.ece.ubc.ca -tY ssh arch'
 alias eject='diskutil umount'
-export PATH=$PATH:/Users/jkuan/Scripts
+alias t='task'
 
 export P4CONFIG=~/.p4config
 
@@ -23,20 +22,13 @@ pdfman () {
 }
 
 alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
-function fraise {
-	open -a Fraise $@
-}
-export PATH="$PATH:."
+export PATH=$PATH:/Users/jkuan/Scripts
+export PATH="$PATH:/Users/jkuan/Scripts/usr/bin"
+export MANPATH="$MANPATH:/Users/jkuan/Scripts/usr/share/man"
 
 if [ CONQUE ]; then
 	export TERM=xterm
 fi
-
-# TODO move z.sh into config repo
-function precmd () {
-	z --add "$(pwd -P)"
-}
-
 
 # cdff will change directory to that of front Finder window
 function ff { osascript -e 'tell application "Finder"' \
@@ -52,14 +44,20 @@ function xcff { osascript -e 'tell application "Xcode"'
 -e 'get ""' \ 
 -e 'end if' \
 -e 'end tell'; }
-function cdff { cd "`ff $@`"; }
+function cdff { cd "`ff $@`"; pwd; }
 function cdxc { FILE="`xcff $@`"; if [ "-$FILE" != "-" ] ; \
 then cd "${FILE%/*}" ; fi; }
 
-if [ -f /opt/local/etc/bash_completion ]; then
-	. /opt/local/etc/bash_completion
+# source autojump and bash_completion
+if [ -d /opt/local/etc/profile.d ]; then
+	for i in /opt/local/etc/profile.d/*.sh; do
+		if [ -r $i ]; then
+			. $i
+		fi
+	done
+	unset i
 fi
-
-if [ -f /opt/local/etc/profile.d/autojump.sh ]; then
-	. /opt/local/etc/profile.d/autojump.sh
+if [ -f /opt/local/share/doc/task/scripts/bash/task_completion.sh ]; then
+	source /opt/local/share/doc/task/scripts/bash/task_completion.sh
+	complete -o nospace -F _task t
 fi
