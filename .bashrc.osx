@@ -1,6 +1,7 @@
 alias ls='ls -G'
 alias ll='ls -lA'
 alias l='ls'
+export EDITOR=/usr/bin/vi
 
 alias matlab='/Applications/MATLAB_R2008a/bin/matlab -nodesktop -nosplash'
 alias X11="open -a X11"
