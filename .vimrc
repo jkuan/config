@@ -47,6 +47,8 @@ set pastetoggle=<F3>
 map <F2> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.toc$', '\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
+" just use included matchit plugin
+source $VIMRUNTIME/macros/matchit.vim
 
 " browser style space bar nav
 nno <Space> 
