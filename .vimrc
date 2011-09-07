@@ -2,6 +2,7 @@ call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 " make sure these 2 pathogen lines come before enabling filetype detection
 
+syntax on
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
 filetype plugin on
 
@@ -18,7 +19,6 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor="latex"
 
-:syntax on
 set sw=4
 set tw=100
 set ignorecase
@@ -31,6 +31,7 @@ set incsearch
 set ruler
 set showcmd
 set backspace=indent,eol,start
+set visualbell
 "nostartofline, makes vim remember cursor column
 set nosol 
 set tabstop=4
@@ -42,14 +43,17 @@ if has("gui_running")
 endif
 autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
-nnoremap <F1> :GundoToggle<CR>
+nnoremap <F2> :GundoToggle<CR>
 set pastetoggle=<F3>
-map <F2> :NERDTreeToggle<CR>
+map <F3> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\.toc$', '\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
 " just use included matchit plugin
 source $VIMRUNTIME/macros/matchit.vim
 
+" use arrow keys to navigate screen lines
+nmap <Down> gj
+nmap <Up> gk
 " browser style space bar nav
 nno <Space> 
 nno <S-Space> 
@@ -85,4 +89,17 @@ cno jj <c-c>
 xn v <esc> 
 "for select mode only
 snor jj <esc> 
+
+" bracketed paste mode -- turn off auto-indent when pasting in terminal vim
+if &term =~ "xterm.*"
+	let &t_ti = &t_ti . "\e[?2004h"
+	let &t_te = "\e[?2004l" . &t_te
+	function XTermPasteBegin(ret)
+		set pastetoggle=<Esc>[201~
+		set paste
+		return a:ret
+	endfunction
+	map <expr> <Esc>[200~ XTermPasteBegin("i")
+	imap <expr> <Esc>[200~ XTermPasteBegin("")
+endif
 
