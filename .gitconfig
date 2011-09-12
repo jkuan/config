@@ -1,0 +1,8 @@
+[user]
+	email = jkuan@ece.ubc.ca
+[color]
+	ui = auto
+	interactive = auto
+[alias]
+	stat = status -sb
+	l = log --oneline --decorate

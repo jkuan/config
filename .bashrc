@@ -23,3 +23,5 @@ case $TERM in
 	PS1="[\w]\$ "
 	;;
 esac
+
+alias git-root='cd $(git rev-parse --show-toplevel)'

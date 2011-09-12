@@ -3,15 +3,16 @@ alias ll='ls -lA'
 alias l='ls'
 export EDITOR=/usr/bin/vi
 
+alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 alias matlab='/Applications/MATLAB_R2008a/bin/matlab -nodesktop -nosplash'
 alias X11="open -a X11"
+alias eject='diskutil umount'
+
 alias sshece='ssh -Y jkuan@ssh.ece.ubc.ca'
 alias sshecearchc24='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh c24-0 -t tcsh'
 alias sshecearchhead='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh arch-head'
 alias sshecearch='ssh jkuan@ssh.ece.ubc.ca -t ssh arch'
 alias ssharch='ssh -Y ssh.ece.ubc.ca -tY ssh arch'
-alias eject='diskutil umount'
-alias t='task'
 
 export P4CONFIG=~/.p4config
 
@@ -22,7 +23,6 @@ pdfman () {
    man -t $1 | open -a /Applications/Preview.app -f
 }
 
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 export PATH=$PATH:/Users/jkuan/Scripts
 export PATH="$PATH:/Users/jkuan/Scripts/usr/bin"
 export MANPATH="$MANPATH:/Users/jkuan/Scripts/usr/share/man"
@@ -58,6 +58,9 @@ if [ -d /opt/local/etc/profile.d ]; then
 	done
 	unset i
 fi
+alias g='git'
+complete -o nospace -F _git g
+alias t='task'
 if [ -f /opt/local/share/doc/task/scripts/bash/task_completion.sh ]; then
 	source /opt/local/share/doc/task/scripts/bash/task_completion.sh
 	complete -o nospace -F _task t
