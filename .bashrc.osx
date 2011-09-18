@@ -50,13 +50,11 @@ function cdxc { FILE="`xcff $@`"; if [ "-$FILE" != "-" ] ; \
 then cd "${FILE%/*}" ; fi; }
 
 # source autojump and bash_completion
-if [ -d /opt/local/etc/profile.d ]; then
-	for i in /opt/local/etc/profile.d/*.sh; do
-		if [ -r $i ]; then
-			. $i
-		fi
-	done
-	unset i
+if \[ -f /opt/local/etc/profile.d/autojump.sh \]; then
+    . /opt/local/etc/profile.d/autojump.sh
+fi
+if \[ -f /opt/local/etc/profile.d/bash_completion.sh \]; then
+    . /opt/local/etc/profile.d/bash_completion.sh
 fi
 alias g='git'
 complete -o nospace -F _git g
