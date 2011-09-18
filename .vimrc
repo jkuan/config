@@ -19,6 +19,8 @@ filetype indent on
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor="latex"
 
+" use , as leader
+let mapleader = ","
 set sw=4
 set tw=100
 set ignorecase
@@ -46,6 +48,7 @@ set wildmode=list:longest
 nnoremap <F2> :GundoToggle<CR>
 set pastetoggle=<F3>
 map <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <F4> :TagbarToggle<CR>
 let NERDTreeIgnore=['\.toc$', '\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
 " just use included matchit plugin
@@ -62,6 +65,8 @@ nnoremap Y y$
 " hopefully ack.vim is installed
 nmap g/ :Ack 
 nnoremap <leader>v `[v`]
+" clear search highlighting
+nmap // :nohlsearch<CR>
 
 " for conque terminal
 " use ctrl-w in insert mode in terminal buffer
@@ -101,5 +106,7 @@ if &term =~ "xterm.*"
 	endfunction
 	map <expr> <Esc>[200~ XTermPasteBegin("i")
 	imap <expr> <Esc>[200~ XTermPasteBegin("")
+	cmap <special> <Esc>[200~ <nop>
+ 	cmap <special> <Esc>[201~ <nop>
 endif
 
