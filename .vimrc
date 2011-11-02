@@ -27,7 +27,7 @@ set ignorecase
 set smartcase
 set title
 set laststatus=2
-set scrolloff=5
+set scrolloff=6
 set hlsearch
 set incsearch
 set ruler
@@ -54,7 +54,7 @@ map <leader>g Vgq
 " just use included matchit plugin
 source $VIMRUNTIME/macros/matchit.vim
 
-" use arrow keys to navigate screen lines
+" use arrow keys to navigate screen lines in normal mode
 nmap <Down> gj
 nmap <Up> gk
 " browser style space bar nav
@@ -67,6 +67,8 @@ nmap g/ :Ack
 nnoremap <leader>v `[v`]
 " clear search highlighting
 nmap // :nohlsearch<CR>
+" use less css syntax highlighting file
+au BufNewFile,BufRead *.less set filetype=less
 
 " for conque terminal
 " use ctrl-w in insert mode in terminal buffer
@@ -76,10 +78,13 @@ let g:ConqueTerm_Color = 1
 " lusty juggler wants hidden set
 " be careful about using q! !!!
 set hidden
-" hide files from lusty explorer table, can still open explicitly
-set wildignore=*.o,*.aux,*.toc
 " use osx's vim without warning
 let g:LustyJugglerSuppressRubyWarning = 1
+" hide files from lusty explorer table, can still open explicitly
+set wildignore=*.o,*.aux,*.toc
+" hide source control metadata for ctrlp
+set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
+"set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
 
 " either cul or syntax highlighting needs to be off for latex files
 au FileType latex set nocursorline
