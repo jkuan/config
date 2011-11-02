@@ -1,8 +1,12 @@
 [user]
-	email = jkuan@ece.ubc.ca
+	email = johnny.kuan@gmail.com
+	name = "Johnny Kuan "
 [color]
 	ui = auto
 	interactive = auto
 [alias]
 	stat = status -sb
 	l = log --oneline --decorate
+	pwd = !pwd
+	root = !echo `git rev-parse --show-toplevel`
+	last = log -1 HEAD
