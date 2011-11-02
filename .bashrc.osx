@@ -63,3 +63,6 @@ if [ -f /opt/local/share/doc/task/scripts/bash/task_completion.sh ]; then
 	source /opt/local/share/doc/task/scripts/bash/task_completion.sh
 	complete -o nospace -F _task t
 fi
+
+# load local ruby version manager
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
