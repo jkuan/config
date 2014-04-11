@@ -9,5 +9,3 @@ set history=500
 
 " toggle showing whitespace
 set listchars=tab:▸\ ,eol:¬
-nmap <silent> <leader>l :set list!<CR>
-
