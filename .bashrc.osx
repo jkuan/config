@@ -23,6 +23,8 @@ pdfman () {
    man -t $1 | open -a /Applications/Preview.app -f
 }
 
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 export PATH=$PATH:/Users/jkuan/Scripts
 export PATH="$PATH:/Users/jkuan/Scripts/usr/bin"
 export MANPATH="$MANPATH:/Users/jkuan/Scripts/usr/share/man"
@@ -49,18 +51,21 @@ function cdff { cd "`ff $@`"; pwd; }
 function cdxc { FILE="`xcff $@`"; if [ "-$FILE" != "-" ] ; \
 then cd "${FILE%/*}" ; fi; }
 
-# source autojump and bash_completion
-if \[ -f /opt/local/etc/profile.d/autojump.sh \]; then
-    . /opt/local/etc/profile.d/autojump.sh
+# source autojump
+if \[ -f /usr/local/etc/autojump.bash \]; then
+    . /usr/local/etc/autojump.bash
 fi
-if \[ -f /opt/local/etc/profile.d/bash_completion.sh \]; then
-    . /opt/local/etc/profile.d/bash_completion.sh
+export AUTOJUMP_IGNORE_CASE=1
+# source bash_completion
+if [ -f /usr/local/share/bash-completion/bash_completion ]; then
+	. /usr/local/share/bash-completion/bash_completion
 fi
 alias g='git'
 complete -o nospace -F _git g
+
 alias t='task'
-if [ -f /opt/local/share/doc/task/scripts/bash/task_completion.sh ]; then
-	source /opt/local/share/doc/task/scripts/bash/task_completion.sh
+if [ -f /usr/local/share/doc/task/scripts/bash/task_completion.sh ]; then
+	source /usr/local/share/doc/task/scripts/bash/task_completion.sh
 	complete -o nospace -F _task t
 fi
 
