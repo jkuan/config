@@ -5,6 +5,9 @@ alias cp='cp -i'
 alias mv='mv -i'
 set -o noclobber
 
+# don't use <C-S> to turn off flow
+stty stop undef
+
 # http://www.blog.montgomerie.net/pwd-in-the-title-bar-or-a-regex-adventure-in-bash
 function directory_to_titlebar {
 	# The maximum length we want (seems to fit nicely in a default length Terminal title bar).
