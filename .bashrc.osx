@@ -1,5 +1,5 @@
 alias ls='ls -G'
-alias ll='ls -lA'
+alias ll='ls -lAtr'
 alias l='ls'
 export EDITOR=/usr/bin/vi
 
