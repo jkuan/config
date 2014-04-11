@@ -1,23 +1,12 @@
 alias ls='ls -G'
 alias ll='ls -lAtr'
 alias l='ls'
-export EDITOR=/usr/bin/vi
+export EDITOR=/Users/jkuan/Scripts/v
 
-alias vlc="/Applications/VLC.app/Contents/MacOS/VLC"
 alias matlab='/Applications/MATLAB_R2008a/bin/matlab -nodesktop -nosplash'
-alias X11="open -a X11"
 alias eject='diskutil umount'
 
-alias sshece='ssh -Y jkuan@ssh.ece.ubc.ca'
-alias sshecearchc24='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh c24-0 -t tcsh'
-alias sshecearchhead='ssh jkuan@ssh.ece.ubc.ca -t ssh arch -t ssh arch-head'
-alias sshecearch='ssh jkuan@ssh.ece.ubc.ca -t ssh arch'
-alias ssharch='ssh -Y ssh.ece.ubc.ca -tY ssh arch'
-
 export P4CONFIG=~/.p4config
-
-export DISPLAY=:0.0
-export PATH="$PATH:/usr/X11R6/bin"
 
 pdfman () {
    man -t $1 | open -a /Applications/Preview.app -f
@@ -29,9 +18,9 @@ export PATH=$PATH:/Users/jkuan/Scripts
 export PATH="$PATH:/Users/jkuan/Scripts/usr/bin"
 export MANPATH="$MANPATH:/Users/jkuan/Scripts/usr/share/man"
 
-if [ CONQUE ]; then
-	export TERM=xterm
-fi
+# stuff for Octave and GNUplot
+export GNUTERM=x11
+export GDFONTPATH=/Library/Fonts:/System/Library/Fonts:$GDFONTPATH
 
 # cdff will change directory to that of front Finder window
 function ff { osascript -e 'tell application "Finder"' \
@@ -68,6 +57,3 @@ if [ -f /usr/local/share/doc/task/scripts/bash/task_completion.sh ]; then
 	source /usr/local/share/doc/task/scripts/bash/task_completion.sh
 	complete -o nospace -F _task t
 fi
-
-# load local ruby version manager
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" # This loads RVM into a shell session.
