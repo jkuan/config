@@ -61,11 +61,12 @@ export PROMPT_DIRTRIM=2
 # show more status is git_ps1
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
+alias gitroot='cd $(git rev-parse --show-toplevel)'
 # only show fancy prompt in xterm window
 case $TERM in
 	xterm*)
 	# use seperate commands for title bar and prompt
-	export PROMPT_COMMAND="directory_to_titlebar"
+	export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;}directory_to_titlebar"
 	PS1='\w$(__git_ps1)\[\033[1m\]\$ \[\033[0m\]'
 	;;
 	*)
@@ -73,4 +74,3 @@ case $TERM in
 	;;
 esac
 
-alias gitroot='cd $(git rev-parse --show-toplevel)'
