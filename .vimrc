@@ -45,11 +45,6 @@ if has("gui_running")
 endif
 autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
-nnoremap <F2> :GundoToggle<CR>
-set pastetoggle=<F3>
-map <F3> :NERDTreeToggle<CR>
-nnoremap <silent> <F4> :TagbarToggle<CR>
-let NERDTreeIgnore=['\.toc$', '\.aux$', '\.eps$', '\.pdf$']
 map <leader>g Vgq
 " just use included matchit plugin
 source $VIMRUNTIME/macros/matchit.vim
@@ -57,9 +52,6 @@ source $VIMRUNTIME/macros/matchit.vim
 " use arrow keys to navigate screen lines in normal mode
 nmap <Down> gj
 nmap <Up> gk
-" browser style space bar nav
-nno <Space> 
-nno <S-Space> 
 "make Y consistent with C and D
 nnoremap Y y$ 
 " hopefully ack.vim is installed
@@ -70,18 +62,6 @@ nmap // :nohlsearch<CR>
 " use less css syntax highlighting file
 au BufNewFile,BufRead *.less set filetype=less
 
-" for conque terminal
-" use ctrl-w in insert mode in terminal buffer
-let g:ConqueTerm_CWInsert = 0
-let g:ConqueTerm_Color = 1
-
-" lusty juggler wants hidden set
-" be careful about using q! !!!
-set hidden
-" use osx's vim without warning
-let g:LustyJugglerSuppressRubyWarning = 1
-" hide files from lusty explorer table, can still open explicitly
-set wildignore=*.o,*.aux,*.toc
 " hide source control metadata for ctrlp
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*   " for Linux/MacOSX
 "set wildignore+=.git\*,.hg\*,.svn\*         " for Windows
