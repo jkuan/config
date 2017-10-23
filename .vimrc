@@ -1,6 +1,5 @@
-call pathogen#runtime_append_all_bundles()
-call pathogen#helptags()
-" make sure these 2 pathogen lines come before enabling filetype detection
+execute pathogen#infect()
+" make sure these pathogen lines come before enabling filetype detection
 
 syntax on
 " REQUIRED. This makes vim invoke Latex-Suite when you open a tex file.
