@@ -10,32 +10,38 @@ filetype plugin on
 " program to always generate a file-name.
 set grepprg=grep\ -nH\ $*
 
-" OPTIONAL: This enables automatic indentation as you type.
-filetype indent on
-
 " OPTIONAL: Starting with Vim 7, the filetype of empty .tex files defaults to
 " 'plaintex' instead of 'tex', which results in vim-latex not being loaded.
 " The following changes the default filetype back to 'tex':
 let g:tex_flavor="latex"
 
-" use , as leader
-let mapleader = ","
-set sw=4
+let mapleader=" "
+filetype plugin indent on
+set nocompatible
+set scrolloff=5
 set tw=100
+nnoremap n nzz
+nnoremap N Nzz
 set ignorecase
 set smartcase
+set autoindent
+" don't align c preprocessor macros to column 1
+set cinkeys-=0#
+set showmatch
+set expandtab
+set shiftwidth=4
+set tabstop=4
 set title
 set laststatus=2
-set scrolloff=6
 set hlsearch
 set incsearch
+set shiftround
 set ruler
 set showcmd
 set backspace=indent,eol,start
 set visualbell
 "nostartofline, makes vim remember cursor column
 set nosol 
-set tabstop=4
 if has("gui_running")
 	set guioptions=egmrt
 	let g:indent_guides_enable_on_vim_startup = 1
@@ -45,16 +51,50 @@ endif
 autocmd FileType text setlocal wrap linebreak textwidth=0
 set wildmode=list:longest
 map <leader>g Vgq
-" just use included matchit plugin
+
+" use included matchit plugin
 source $VIMRUNTIME/macros/matchit.vim
 
 " use arrow keys to navigate screen lines in normal mode
 nmap <Down> gj
 nmap <Up> gk
+
+command WQ wq
+command Wq wq
+command Q q
+
+let g:SuperTabLongestEnhanced=1
+let g:SuperTabLongestHighlight=1 
+
+let g:easy_align_delimiters = {
+\ '\': { 'pattern': '\\$', 'left_margin': 2, 'right_margin': 0, 'stick_to_left': 0 },
+\ }
+
+function TabsOrSpaces()
+    " Determines whether to use spaces or tabs on the current buffer.
+    "if getfsize(bufname("%")) > 256000
+    if getfsize(bufname("%")) > 10000
+        " File is very large, just use the default.
+        return
+    endif
+
+    let numTabs=len(filter(getbufline(bufname("%"), 1, 250), 'v:val =~ "^\\t"'))
+    let numSpaces=len(filter(getbufline(bufname("%"), 1, 250), 'v:val =~ "^ "'))
+
+    if numTabs > numSpaces
+        setlocal noexpandtab
+    else
+        setlocal expandtab
+    endif
+endfunction
+
+" Call the function after opening a buffer
+autocmd BufReadPost * call TabsOrSpaces()
+
+nnoremap <Leader>a :Ack!<Space>
+nnoremap <Leader>w :Ack!<Space><C-R><C-W><CR>
 "make Y consistent with C and D
 nnoremap Y y$ 
-" hopefully ack.vim is installed
-nmap g/ :Ack 
 nnoremap <leader>v `[v`]
 " clear search highlighting
 nmap // :nohlsearch<CR>
